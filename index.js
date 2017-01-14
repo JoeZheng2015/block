@@ -1,4 +1,4 @@
-export default function block (millisecond) {
+function block (millisecond) {
     if (millisecond <= 0) return
 
     let now = performance.now()
@@ -8,3 +8,5 @@ export default function block (millisecond) {
         now = performance.now()
     }
 }
+
+module.exports = block
