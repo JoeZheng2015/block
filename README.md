@@ -1,5 +1,4 @@
 # block.js
-#专业技能
 
 A simple javascript utility for blocking thread specified milliseconds
 
@@ -21,7 +20,7 @@ The `block`function takes one argument which must be number as millisecond you w
 ```javascript
 console.time('block about 400ms')
 block(400)
-console.timeEnd(‘block about 400ms')
+console.timeEnd('block about 400ms')
 ```
 
 ## License
