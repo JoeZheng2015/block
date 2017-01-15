@@ -1,12 +1,28 @@
-function block (millisecond) {
-    if (millisecond <= 0) return
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define([], factory);
+    } else if (typeof module === 'object' && module.exports) {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like environments that support module.exports,
+        // like Node.
+        module.exports = factory();
+    } else {
+        // Browser globals (root is window)
+        root.returnExports = factory();
+  }
+}(this, function () {
 
-    let now = performance.now()
-    const end = now + millisecond
+    function block (millisecond) {
+        if (millisecond <= 0) return
 
-    while(now <= end) {
-        now = performance.now()
+        let now = performance.now()
+        const end = now + millisecond
+
+        while(now <= end) {
+            now = performance.now()
+        }
     }
-}
 
-module.exports = block
+    return block;
+}));
